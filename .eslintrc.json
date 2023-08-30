@@ -12,5 +12,9 @@
       "version": "detect"
     }
   },
-  "rules": {}
+  "rules": {
+    "react/jsx-filename-extension": ["error", { "extensions": [".js", ".jsx", ".ts", ".tsx"] }],
+    "react/react-in-jsx-scope": "off",
+    "import/extensions": "off"
+  }
 }
