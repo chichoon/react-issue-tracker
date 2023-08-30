@@ -2,7 +2,7 @@ export interface IssueType {
   number: number;
   html_url: string;
   created_at: string;
-  body: string;
+  body?: string | null;
   title: string;
   comments: number;
 }
