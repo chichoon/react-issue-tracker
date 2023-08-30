@@ -56,7 +56,9 @@ export const IssuePage = () => {
           <ReactMarkdown className={styles.markdown}>{issueData.body ?? ''}</ReactMarkdown>
         </>
       ) : (
-        <div>Loading...</div>
+        <div className={styles.mainTitle}>
+          <h2>Loading...</h2>
+        </div>
       )}
     </>
   );
