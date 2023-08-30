@@ -18,19 +18,17 @@ export const MainPage = () => {
   }, [page]);
 
   return (
-    <div>
-      <ul className={styles.list}>
-        {dataList.map((data, index) =>
-          index % 5 === 0 && index !== 0 ? (
-            <>
-              <AdvertiseElement />
-              <IssueDataElement key={data.number} issueData={data} />
-            </>
-          ) : (
+    <ul className={styles.list}>
+      {dataList.map((data, index) =>
+        index % 5 === 0 && index !== 0 ? (
+          <>
+            <AdvertiseElement />
             <IssueDataElement key={data.number} issueData={data} />
-          )
-        )}
-      </ul>
-    </div>
+          </>
+        ) : (
+          <IssueDataElement key={data.number} issueData={data} />
+        )
+      )}
+    </ul>
   );
 };

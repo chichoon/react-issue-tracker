@@ -1,0 +1,25 @@
+.header {
+  background-color: #fff;
+  border-bottom: 1px solid #e6e6e6;
+  height: 60px;
+  line-height: 60px;
+  padding: 0 20px;
+  width: 100%;
+
+  & > span {
+    font-size: 20px;
+    font-weight: 700;
+  }
+
+  & > span:not(:nth-child(2)) {
+    color: #4a83bd;
+  }
+
+  & > span:first-child {
+    margin-right: 5px;
+  }
+
+  & > span:last-child {
+    margin-left: 5px;
+  }
+}
