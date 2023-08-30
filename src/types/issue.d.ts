@@ -5,6 +5,7 @@ export interface IssueType {
   body?: string | null;
   title: string;
   comments: number;
+  user: UserType | null;
 }
 
 export interface UserType {
