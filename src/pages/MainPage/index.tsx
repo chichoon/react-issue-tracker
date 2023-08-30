@@ -1,34 +1,33 @@
-import { Octokit } from 'octokit';
 import { useEffect, useState } from 'react';
 
 import { IssueType } from 'types/issue';
 import { getIssues } from 'services/getIssues';
+import { IssueDataElement } from './IssueDataElement';
+import { AdvertiseElement } from './AdvertiseElement';
+
+import styles from './MainPage.module.scss';
 
 export const MainPage = () => {
   const [dataList, setDataList] = useState<IssueType[]>([]);
   const [page, setPage] = useState(1);
-  const octokit = new Octokit({
-    auth: process.env.REACT_APP_GITHUB_TOKEN,
-  });
 
   useEffect(() => {
     getIssues(page).then((data) => {
       setDataList(data);
-      console.log(data);
     });
-  }, []);
+  }, [page]);
 
   return (
     <div>
-      <ul>
+      <ul className={styles.list}>
         {dataList.map((data, index) =>
           index % 5 === 0 && index !== 0 ? (
             <>
-              <li>광고</li>
-              <li key={data.number}>{data.title}</li>
+              <AdvertiseElement />
+              <IssueDataElement key={data.number} issueData={data} />
             </>
           ) : (
-            <li key={data.number}>{data.title}</li>
+            <IssueDataElement key={data.number} issueData={data} />
           )
         )}
       </ul>
