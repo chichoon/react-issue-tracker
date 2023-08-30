@@ -50,10 +50,10 @@ export const IssuePage = () => {
       </div>
       {issueData ? (
         <>
-          <div>
+          <div className={styles.mainTitle}>
             <h2>{issueData.title}</h2>
           </div>
-          <ReactMarkdown>{issueData.body ?? ''}</ReactMarkdown>
+          <ReactMarkdown className={styles.markdown}>{issueData.body ?? ''}</ReactMarkdown>
         </>
       ) : (
         <div>Loading...</div>

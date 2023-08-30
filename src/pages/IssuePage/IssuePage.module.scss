@@ -29,3 +29,38 @@
     cursor: pointer;
   }
 }
+
+.mainTitle {
+  font-size: 16px;
+  font-weight: 700;
+  padding: 10px 20px;
+
+  & > h2 {
+    margin: 0;
+  }
+}
+
+.markdown {
+  padding: 0 20px 20px;
+  width: calc(100% - 40px);
+
+  h1 {
+    font-size: 20px;
+  }
+  h2 {
+    font-size: 18px;
+  }
+  h3 {
+    font-size: 16px;
+  }
+  span,
+  p {
+    font-size: 14px;
+  }
+
+  pre {
+    font-size: 14px;
+    width: 100%;
+    white-space: pre-wrap;
+  }
+}
