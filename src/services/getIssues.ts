@@ -15,3 +15,16 @@ export async function getIssues(page: number) {
   }
   return res.data.sort((a, b) => b.comments - a.comments);
 }
+
+export async function getIssue(id: number) {
+  const res = await octokit.request('GET /repos/{owner}/{repo}/issues/{issue_number}', {
+    owner: 'facebook',
+    repo: 'react',
+    issue_number: id,
+  });
+
+  if (res.status !== 200) {
+    return null;
+  }
+  return res.data;
+}
