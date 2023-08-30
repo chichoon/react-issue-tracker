@@ -1,7 +1,11 @@
-import './App.css';
+import { Route, Routes } from 'react-router-dom';
+import { MainPage } from './pages/MainPage';
 
-function App() {
-  return <div className='App'>aaa</div>;
-}
+const App = () => (
+  <Routes>
+    <Route path='/' element={<MainPage />} />
+    <Route path='/:issueId' element={<div>bbb</div>} />
+  </Routes>
+);
 
 export default App;
