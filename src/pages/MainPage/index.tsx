@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { Fragment, useEffect, useState } from 'react';
 
 import { IssueType } from 'types/issue';
 import { getIssues } from 'services/getIssues';
@@ -21,10 +21,10 @@ export const MainPage = () => {
     <ul className={styles.list}>
       {dataList.map((data, index) =>
         index % 5 === 0 && index !== 0 ? (
-          <>
+          <Fragment key={data.number}>
             <AdvertiseElement />
             <IssueDataElement key={data.number} issueData={data} />
-          </>
+          </Fragment>
         ) : (
           <IssueDataElement key={data.number} issueData={data} />
         )
