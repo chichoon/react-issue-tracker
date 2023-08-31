@@ -5,7 +5,7 @@ const octokit = new Octokit({
 });
 
 export async function getIssues(page: number) {
-  const res = await octokit.request('GET /repos/{owner}/{repo}/issues?sort=comments', {
+  const res = await octokit.request('GET /repos/{owner}/{repo}/issues?sort=comments&state=open', {
     owner: 'facebook',
     repo: 'react',
     page,
