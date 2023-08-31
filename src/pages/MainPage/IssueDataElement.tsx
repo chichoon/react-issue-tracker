@@ -17,7 +17,11 @@ export const IssueDataElement = ({ issueData }: Props) => (
         <span>{issueData.title}</span>
       </div>
       <div className={styles.issueInfo}>
-        <span>작성자: {issueData.user?.login}</span>
+        <div className={styles.userInfo}>
+          <span>작성자: </span>
+          <img src={issueData.user?.avatar_url} alt={`${issueData.user?.login} avatar`} />
+          <span>{issueData.user?.login}</span>
+        </div>
         <span>작성일: {new Date(issueData.created_at).toLocaleDateString()} </span>
         <div className={styles.issueCommentWrapper}>
           <CommentIcon />
