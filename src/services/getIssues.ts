@@ -5,7 +5,7 @@ const octokit = new Octokit({
 });
 
 export async function getIssues(page: number) {
-  const res = await octokit.request('GET /repos/{owner}/{repo}/issues', {
+  const res = await octokit.request('GET /repos/{owner}/{repo}/issues?sort=comments', {
     owner: 'facebook',
     repo: 'react',
     page,
@@ -13,7 +13,7 @@ export async function getIssues(page: number) {
   if (res.status !== 200) {
     return [];
   }
-  return res.data.sort((a, b) => b.comments - a.comments);
+  return res.data;
 }
 
 export async function getIssue(id: number) {
