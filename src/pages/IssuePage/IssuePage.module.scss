@@ -30,6 +30,26 @@
   }
 }
 
+.headerMetadata {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  flex: 1;
+
+  .comment {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    & > svg {
+      width: 20px;
+      height: 20px;
+      margin-right: 5px;
+    }
+  }
+}
+
 .mainTitle {
   font-size: 16px;
   font-weight: 700;
@@ -37,6 +57,26 @@
 
   & > h2 {
     margin: 0;
+  }
+
+  .userInfo {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+
+    & > img {
+      width: 40px;
+      height: 40px;
+      border-radius: 20px;
+      margin-right: 10px;
+      border: 1px solid black;
+    }
+
+    & > span {
+      margin-left: 10px;
+      color: #aaaaaa;
+    }
   }
 }
 

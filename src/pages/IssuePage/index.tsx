@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { ReactMarkdown } from 'react-markdown/lib/react-markdown';
 import { useLocation, useNavigate } from 'react-router-dom';
 
-import { ArrowIcon } from 'assets';
+import { ArrowIcon, CommentIcon } from 'assets';
 import { getIssue } from 'services/getIssues';
 import { IssueType } from 'types/issue';
 
@@ -46,12 +46,23 @@ export const IssuePage = () => {
         <button type='button' className={styles.backButton} onClick={handleClickBackButton}>
           <ArrowIcon />
         </button>
-        <span>Issue #{issueData ? issueData.number : 0}</span>
+        <div className={styles.headerMetadata}>
+          <span>Issue #{issueData ? issueData.number : 0}</span>
+          <div className={styles.comment}>
+            <CommentIcon />
+            <span>{issueData ? issueData.comments : 0}</span>
+          </div>
+        </div>
       </div>
       {issueData ? (
         <>
           <div className={styles.mainTitle}>
             <h2>{issueData.title}</h2>
+            <div className={styles.userInfo}>
+              <img src={issueData.user?.avatar_url} alt='user avatar' />
+              <h3>{issueData.user?.login}</h3>
+              <span>{new Date(issueData.created_at).toLocaleDateString()}</span>
+            </div>
           </div>
           <ReactMarkdown className={styles.markdown}>{issueData.body ?? ''}</ReactMarkdown>
         </>
